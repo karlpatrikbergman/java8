@@ -1,11 +1,25 @@
-package se.patrikbergman.java.entities;
+package se.patrikbergman.java.trees;
 
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.Value;
 import se.patrikbergman.java.common.Color;
+import se.patrikbergman.java.fruits.Apple;
+import se.patrikbergman.java.tree.AbstractTree;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class AppleTree {
+@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper = true)
+@Value
+public class AppleTree extends AbstractTree {
+
+    @Builder
+    public AppleTree(Species species, int age) {
+        super(species, age);
+    }
 
     public static List<Apple> harvest1() {
         return Arrays.asList(
@@ -42,40 +56,4 @@ public class AppleTree {
 
         );
     }
-
-//    public static ImmutableList<Apple> harvest() {
-//        return ImmutableList.of(
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Red")
-//                        .weight(343.6)
-//                        .build(),
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Green")
-//                        .weight(454.6)
-//                        .build(),
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Yellow")
-//                        .weight(563.1)
-//                        .build(),
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Red and green")
-//                        .weight(443.6)
-//                        .build(),
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Green")
-//                        .weight(154.6)
-//                        .build(),
-//                Apple.builder()
-//                        .cultivar("Granny Smith")
-//                        .color("Green and yellow")
-//                        .weight(763.3)
-//                        .build()
-//
-//        );
-//    }
 }

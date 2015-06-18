@@ -1,4 +1,4 @@
-package se.patrikbergman.java.entities;
+package se.patrikbergman.java.fruit;
 
 import lombok.Value;
 import lombok.experimental.NonFinal;
@@ -6,7 +6,7 @@ import se.patrikbergman.java.common.Color;
 
 @Value
 @NonFinal
-class Fruit {
+public abstract class AbstractFruit {
     Color color;
     double weight;
 }

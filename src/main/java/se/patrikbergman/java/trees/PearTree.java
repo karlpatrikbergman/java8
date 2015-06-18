@@ -1,11 +1,26 @@
-package se.patrikbergman.java.entities;
+package se.patrikbergman.java.trees;
 
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.Value;
 import se.patrikbergman.java.common.Color;
+import se.patrikbergman.java.fruits.Pear;
+import se.patrikbergman.java.tree.AbstractTree;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class PearTree {
+
+@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper = true)
+@Value
+public class PearTree extends AbstractTree {
+
+    @Builder
+    public PearTree(Species species, int age) {
+        super(species, age);
+    }
 
     public static List<Pear> harvest1() {
         return Arrays.asList(

@@ -1,10 +1,13 @@
-package se.patrikbergman.java.entities;
+package se.patrikbergman.java.fruits;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
+import se.patrikbergman.java.common.Color;
+import se.patrikbergman.java.fruit.AbstractFruit;
+import se.patrikbergman.java.trees.AppleTree;
 
 import java.util.List;
 
@@ -38,10 +41,19 @@ public class AppleTreeTest {
 
     @Test
     public void sumWeighOfApples() {
-        final Double sumWeight = apples.stream()
+        final Double sumWeightApples = apples.stream()
                 .filter(apple -> apple instanceof Apple)
-                .mapToDouble(Fruit::getWeight)
+                .mapToDouble(AbstractFruit::getWeight)
                 .sum();
-        System.out.format("Total weigh of apples is %s grams%n", sumWeight);
+        System.out.format("Total weigh of apples is %s grams%n", sumWeightApples);
+    }
+
+    @Test
+    public void sumWeighOfRedApples() {
+        final double sumWeighRedApples = apples.stream()
+                .filter(apple -> apple.getColor().equals(Color.RED))
+                .mapToDouble(Apple::getWeight)
+                .sum();
+        System.out.format("Total weigh of apples is %s grams%n", sumWeighRedApples );
     }
 }

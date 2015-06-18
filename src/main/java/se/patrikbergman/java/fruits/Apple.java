@@ -1,28 +1,29 @@
-package se.patrikbergman.java.entities;
+package se.patrikbergman.java.fruits;
+
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.Value;
 import se.patrikbergman.java.common.Color;
+import se.patrikbergman.java.fruit.AbstractFruit;
 
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @Value
-public class Pear extends Fruit {
+public class Apple extends AbstractFruit {
     private Cultivar cultivar;
 
     @Builder
-    public Pear(Cultivar cultivar, Color color, double weight) {
+    public Apple(Cultivar cultivar, Color color, double weight) {
         super(color, weight);
         this.cultivar = cultivar;
     }
 
-
     public enum Cultivar {
-        ABATE_FETEL("Abate Fetel"),
-        BON_ROUGE("Bon Rouge"),
-        CATILAC("Catillac");
+        AKANE("Akane"),
+        BALDWIN("Baldwin"),
+        CAMEO("Cameo");
 
         private final String name;
 
@@ -35,3 +36,4 @@ public class Pear extends Fruit {
         }
     }
 }
+
