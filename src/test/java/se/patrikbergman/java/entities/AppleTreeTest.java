@@ -1,8 +1,10 @@
 package se.patrikbergman.java.entities;
 
-import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import java.util.List;
 
@@ -10,21 +12,25 @@ import static java.util.Comparator.comparing;
 
 public class AppleTreeTest {
 
-    private final List<Apple> apples = AppleTree.harvest1();
+
+    @Rule
+    public TestName name= new TestName();
+
+    private List<Apple> apples;
 
     @Before
     public void setup() {
-        System.out.println();
+        apples = AppleTree.harvest1();
+        System.out.format("%nExecuting method '%s':%n", name.getMethodName());
     }
 
-    @After
-    public void tearDown() {
-//        System.out.println();
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("");
     }
 
     @Test
     public void sortApplesByWeightReversed() {
-        System.out.format("Sorting apples by weight...%n");
         apples.sort(comparing(Apple::getWeight).reversed());
         apples.stream()
                 .forEach(System.out::println);
@@ -32,7 +38,6 @@ public class AppleTreeTest {
 
     @Test
     public void sumWeighOfApples() {
-        System.out.format("Calculating total weight of apples...%n");
         final Double sumWeight = apples.stream()
                 .filter(apple -> apple instanceof Apple)
                 .mapToDouble(Fruit::getWeight)
