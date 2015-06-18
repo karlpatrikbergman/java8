@@ -7,17 +7,23 @@ import lombok.ToString;
 import lombok.Value;
 import se.patrikbergman.java.common.Color;
 import se.patrikbergman.java.fruit.AbstractFruit;
+import se.patrikbergman.java.fruit.Fruit;
 
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @Value
-public class Apple extends AbstractFruit {
+public class Apple extends AbstractFruit implements Fruit {
     private Cultivar cultivar;
 
     @Builder
     public Apple(Cultivar cultivar, Color color, double weight) {
         super(color, weight);
         this.cultivar = cultivar;
+    }
+
+    @Override
+    public String getName() {
+        return cultivar.getName();
     }
 
     public enum Cultivar {

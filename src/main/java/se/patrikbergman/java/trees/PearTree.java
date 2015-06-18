@@ -6,7 +6,8 @@ import lombok.ToString;
 import lombok.Value;
 import se.patrikbergman.java.common.Color;
 import se.patrikbergman.java.fruits.Pear;
-import se.patrikbergman.java.tree.AbstractTree;
+import se.patrikbergman.java.tree.AbstractFruitTree;
+import se.patrikbergman.java.tree.FruitTree;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
 @Value
-public class PearTree extends AbstractTree {
+public class PearTree extends AbstractFruitTree implements FruitTree {
 
     @Builder
     public PearTree(Species species, int age) {
         super(species, age);
     }
 
-    public static List<Pear> harvest1() {
+    public List<Pear> harvest() {
         return Arrays.asList(
                 Pear.builder()
                         .cultivar(Pear.Cultivar.ABATE_FETEL)

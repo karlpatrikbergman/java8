@@ -5,7 +5,7 @@ import lombok.experimental.NonFinal;
 
 @Value
 @NonFinal
-public abstract class AbstractTree {
+public abstract class AbstractFruitTree {
     Species species;
     int age;
 

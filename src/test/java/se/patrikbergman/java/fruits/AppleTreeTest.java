@@ -23,7 +23,8 @@ public class AppleTreeTest {
 
     @Before
     public void setup() {
-        apples = AppleTree.harvest1();
+        final AppleTree appleTree = AppleTree.builder().build();
+        apples = appleTree.harvest();
         System.out.format("%nExecuting method '%s':%n", name.getMethodName());
     }
 
