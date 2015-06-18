@@ -5,7 +5,7 @@ import se.patrikbergman.java.common.Color;
 import java.util.Arrays;
 import java.util.List;
 
-class AppleTree {
+public class AppleTree {
 
     public static List<Apple> harvest1() {
         return Arrays.asList(
