@@ -4,6 +4,7 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import se.patrikbergman.java.common.Color;
 import se.patrikbergman.java.fruit.AbstractFruit;
+import se.patrikbergman.java.tree.AbstractFruitTree;
 import se.patrikbergman.java.trees.AppleTree;
 
 import java.util.List;
@@ -20,7 +21,10 @@ public class AppleTreeTest {
     private final AppleTree appleTree;
 
     public AppleTreeTest() {
-        appleTree = AppleTree.builder().build();
+        appleTree = AppleTree.builder()
+                .age(110)
+                .species(AbstractFruitTree.Species.APPLE)
+                .build();
         apples = appleTree.harvest();
 
     }
